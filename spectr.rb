@@ -8,6 +8,7 @@ OptionParser.new do |opts|
 
   opts.on('--resize', 'Resize image to 250 px height') { |v| options[:resize] = true }
   opts.on('--invert', 'Invert image colors') { |v| options[:invert] = true }
+  opts.on('--open', 'Open final spectrogram') { |v| options[:open] = true }
 
 end.parse!
 
@@ -35,4 +36,8 @@ else
 
 	puts "Generating spectrogram: #{spectrogram_file}"
 	system("sox #{sound_file} -n spectrogram -o #{spectrogram_file}")
+
+	if options[:open]
+		system("open #{spectrogram_file}")
+	end
 end
