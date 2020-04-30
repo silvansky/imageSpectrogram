@@ -1,5 +1,7 @@
 # Convert image into sound
 
+Command line utility written in `perl` and wrapped around with `ruby`.
+
 ## Depends on:
 
     cpan Audio::Wav
@@ -11,13 +13,21 @@
 
 ## macOS only: `spectr.rb`. Depends on:
 
-    brew install sox
+    brew install sox imagemagick
 
 ### Usage:
 
-    ./spectr.rb image_file [--resize]
+    ./spectr.rb image_file [options]
 
 This will produce sound file via `imageSpectrogram.pl` and it's spectrogram via `sox`.
+
+#### Options
+
+    --resize:
+Resize image to 150px height using `sips` utility
+
+    --invert
+Invert image colors using `imagemagick` utility
 
 ## Examples:
 

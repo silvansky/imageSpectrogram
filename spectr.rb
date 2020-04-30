@@ -7,6 +7,7 @@ OptionParser.new do |opts|
   opts.banner = "Usage: spectr.rb image_file [options]"
 
   opts.on('--resize', 'Resize image to 250 px height') { |v| options[:resize] = true }
+  opts.on('--invert', 'Invert image colors') { |v| options[:invert] = true }
 
 end.parse!
 
@@ -21,6 +22,12 @@ else
 		puts "Resizing image: #{image_file}"
 		system("sips #{image_file} --resampleHeight 250 --out resized_#{image_file}")
 		image_file = "resized_#{image_file}"
+	end
+
+	if options[:invert]
+		puts "Resizing image: #{image_file}"
+		system("convert #{image_file} -channel RGB -negate inverted_#{image_file}")
+		image_file = "inverted_#{image_file}"
 	end
 
 	puts "Generating sound: #{sound_file}"
