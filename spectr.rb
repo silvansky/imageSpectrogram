@@ -25,7 +25,7 @@ else
 	end
 
 	if options[:invert]
-		puts "Resizing image: #{image_file}"
+		puts "Inverting image: #{image_file}"
 		system("convert #{image_file} -channel RGB -negate inverted_#{image_file}")
 		image_file = "inverted_#{image_file}"
 	end
