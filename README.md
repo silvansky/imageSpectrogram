@@ -27,3 +27,4 @@ This command will produce this spectrogram:
 
 ![Example 1](examples/selfie3.jpg_spectrum.png)
 
+[Resulting sound file](examples/selfie3.jpg.wav)
